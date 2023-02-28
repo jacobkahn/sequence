@@ -106,10 +106,8 @@ commands:
       - run:
           name: "Install Python Bindings"
           command: |
-            pip install packaging && \
             pip install numpy && \
-            cd bindings/python && \
-            USE_CUDA=<< parameters.use_cuda >> python setup.py install
+            USE_CUDA=<< parameters.use_cuda >> pip install -v .
   run_python_tests:
     parameters:
       use_cuda:
